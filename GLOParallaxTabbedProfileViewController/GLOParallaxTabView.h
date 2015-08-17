@@ -22,5 +22,6 @@
 
 @property (nonatomic) NSArray *tabTitles;
 @property (nonatomic) id<GLOParallaxTabViewDelegate> delegate;
+@property (nonatomic) NSInteger selectedIndex;
 
 @end

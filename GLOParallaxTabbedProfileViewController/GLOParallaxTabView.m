@@ -21,7 +21,7 @@
 
 - (instancetype)init {
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
-    screenBounds.size.height = 44.0;
+    screenBounds.size.height = 80.0;
     
     return [self initWithFrame:screenBounds];
 }
@@ -55,14 +55,22 @@
             if (keyInteger > 0) { //Skip the first item
                 vflString = [NSString stringWithFormat:@"%@[%@(==button0)]",vflString, currentButtonString];
             }
+            
+            NSString *vflVerticalString = [NSString stringWithFormat:@"V:|[%@(>=50,<=80)]|",currentButtonString];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflVerticalString options:NSLayoutFormatAlignAllBottom metrics:nil views:@{currentButtonString:button}]];
+            
             [viewsDict setObject:button forKey:currentButtonString];
             keyInteger++;
         }
         vflString = [NSString stringWithFormat:@"%@|",vflString];
-        
+//        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[button0(>=50,<=80)]|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{@"button0":self.tabButtons[0]}]];
+//        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[button1(>=50,<=80)]|" options:NSLayoutFormatAlignAllBottom metrics:nil views:@{@"button1":self.tabButtons[1]}]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflString options:NSLayoutFormatAlignAllBottom metrics:nil views:viewsDict]];
+        
 
     }
+    
+    self.selectedIndex = 0;
     
 }
 
@@ -81,6 +89,19 @@
 - (void)tabButtonPressed:(UIButton *)button {
     if ([self.delegate respondsToSelector:@selector(tabView:didSelectTab:)]) {
         [self.delegate tabView:self didSelectTab:button];
+    }
+    for (UIButton *currButton in self.tabButtons) {
+        currButton.selected = NO;
+    }
+    button.selected = YES;
+}
+
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
+    if (selectedIndex > self.tabButtons.count - 1) {
+        return;
+    }
+    else {
+        [self tabButtonPressed:self.tabButtons[selectedIndex]];
     }
 }
 

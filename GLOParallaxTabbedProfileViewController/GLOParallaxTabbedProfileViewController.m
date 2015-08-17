@@ -20,28 +20,26 @@
     [super viewDidLoad];
     
     GLOParallaxTabView *tabView = [[GLOParallaxTabView alloc] init];
-    tabView.tabTitles = @[@"Test 1", @"Test 2", @"Test 3", @"Test 4"];
+    tabView.tabTitles = @[@"Friends (100)", @"Circles (2)", @"Settings"];
     tabView.backgroundColor = [UIColor purpleColor];
     tabView.delegate = self;
     [self.view addSubview:tabView];
     
-    _profileImageView = [[UIImageView alloc] init];
+    _profileImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profileImage"]];
+    _profileImageView.contentMode = UIViewContentModeScaleAspectFill;
     _profileImageView.backgroundColor = [UIColor lightGrayColor];
     
     _profileImageView.translatesAutoresizingMaskIntoConstraints = NO;
     
     _scrollView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    [self.scrollView setParallaxHeaderView:self.profileImageView mode:VGParallaxHeaderModeTopFill height:[UIScreen mainScreen].bounds.size.height];
+    [self.scrollView setParallaxHeaderView:self.profileImageView mode:VGParallaxHeaderModeTopFill height:[UIScreen mainScreen].bounds.size.height + 6];
     self.scrollView.delegate = self;
     self.scrollView.dataSource = self;
     [self.scrollView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     self.scrollView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionBottom;
-    [self.scrollView.parallaxHeader setStickyView:tabView
-                                       withHeight:44];
-    
-    self.scrollView.parallaxHeader.stickyView.backgroundColor = [UIColor clearColor];
+    [self.scrollView.parallaxHeader setStickyView:tabView withHeight:80];
     
     [self.view addSubview:_scrollView];
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 3000)];
