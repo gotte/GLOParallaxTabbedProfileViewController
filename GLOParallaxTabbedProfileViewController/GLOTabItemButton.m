@@ -34,17 +34,18 @@ static const CGFloat strokeWidth = 0;
     CGContextSetLineJoin(context, kCGLineJoinRound);
     CGContextSetLineWidth(context, strokeWidth);
     CGContextSetStrokeColorWithColor(context, [[UIColor clearColor] CGColor]);
-    CGContextSetFillColorWithColor(context, [[UIColor purpleColor] CGColor]);
+    CGContextSetFillColorWithColor(context, [self.backgroundColor CGColor]);
     
     // Draw and fill the bubble
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, borderRadius + strokeWidth , strokeWidth + HEIGHTOFPOPUPTRIANGLE);
     
     if (self.selected) {
-    CGContextAddLineToPoint(context, round(currentFrame.size.width / 2.0f - WIDTHOFPOPUPTRIANGLE / 2.0f) , HEIGHTOFPOPUPTRIANGLE + strokeWidth);
-    CGContextAddLineToPoint(context, round(currentFrame.size.width / 2.0f) , strokeWidth);
-    CGContextAddLineToPoint(context, round(currentFrame.size.width / 2.0f + WIDTHOFPOPUPTRIANGLE / 2.0f) , HEIGHTOFPOPUPTRIANGLE + strokeWidth);
+        CGContextAddLineToPoint(context, round(currentFrame.size.width / 2.0f - WIDTHOFPOPUPTRIANGLE / 2.0f) , HEIGHTOFPOPUPTRIANGLE + strokeWidth);
+        CGContextAddLineToPoint(context, round(currentFrame.size.width / 2.0f) , strokeWidth);
+        CGContextAddLineToPoint(context, round(currentFrame.size.width / 2.0f + WIDTHOFPOPUPTRIANGLE / 2.0f) , HEIGHTOFPOPUPTRIANGLE + strokeWidth);
     }
+    
     CGContextAddArcToPoint(context, currentFrame.size.width - strokeWidth, strokeWidth + HEIGHTOFPOPUPTRIANGLE, currentFrame.size.width - strokeWidth, currentFrame.size.height - strokeWidth, borderRadius - strokeWidth);
     CGContextAddArcToPoint(context, currentFrame.size.width - strokeWidth, currentFrame.size.height - strokeWidth, round(currentFrame.size.width / 2.0f + WIDTHOFPOPUPTRIANGLE / 2.0f) - strokeWidth , currentFrame.size.height - strokeWidth, borderRadius - strokeWidth);
     CGContextAddArcToPoint(context, strokeWidth , currentFrame.size.height - strokeWidth, strokeWidth , HEIGHTOFPOPUPTRIANGLE + strokeWidth , borderRadius - strokeWidth);

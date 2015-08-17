@@ -34,6 +34,20 @@
 
 #pragma mark - UI setup
 
+- (void)setTabColors:(NSArray *)tabColors {
+    if (self.tabButtons.count != tabColors.count) {
+        NSLog(@"Number of colors must match the number of buttons");
+        return;
+    }
+    else {
+        NSInteger index = 0;
+        for (UIButton *tabButton in self.tabButtons) {
+            tabButton.backgroundColor = tabColors[index];
+            index++;
+        }
+    }
+}
+
 - (void)setTabTitles:(NSArray *)tabTitles {
     _tabTitles = tabTitles;
     _tabButtons = nil;
@@ -77,7 +91,7 @@
 - (GLOTabItemButton *)tabButtonWithTitle:(NSString *)title {
     GLOTabItemButton *button = [[GLOTabItemButton alloc] init];
     button.translatesAutoresizingMaskIntoConstraints = NO;
-    //button.backgroundColor = [UIColor clearColor];
+    button.backgroundColor = [UIColor clearColor];
     [button setTitle:title forState:UIControlStateNormal];
     [button addTarget:self action:@selector(tabButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     

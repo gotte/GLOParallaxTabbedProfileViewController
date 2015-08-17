@@ -21,6 +21,7 @@
 @interface GLOParallaxTabView : UIView
 
 @property (nonatomic) NSArray *tabTitles;
+@property (nonatomic) NSArray *tabColors;
 @property (nonatomic) id<GLOParallaxTabViewDelegate> delegate;
 @property (nonatomic) NSInteger selectedIndex;
 

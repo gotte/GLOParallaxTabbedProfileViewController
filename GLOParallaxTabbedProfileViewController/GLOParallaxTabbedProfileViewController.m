@@ -16,11 +16,15 @@
 
 @implementation GLOParallaxTabbedProfileViewController
 
+static const CGFloat GLOIndicatorArrowHeight = 6.0;
+static const CGFloat GLOTabbedPagerViewHeight = 80.0;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     GLOParallaxTabView *tabView = [[GLOParallaxTabView alloc] init];
     tabView.tabTitles = @[@"Friends (100)", @"Circles (2)", @"Settings"];
+    tabView.tabColors = @[[UIColor lightGrayColor], [UIColor orangeColor], [UIColor purpleColor]];
     tabView.backgroundColor = [UIColor purpleColor];
     tabView.delegate = self;
     [self.view addSubview:tabView];
@@ -33,13 +37,13 @@
     
     _scrollView = [[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    [self.scrollView setParallaxHeaderView:self.profileImageView mode:VGParallaxHeaderModeTopFill height:[UIScreen mainScreen].bounds.size.height + 6];
+    [self.scrollView setParallaxHeaderView:self.profileImageView mode:VGParallaxHeaderModeTopFill height:[UIScreen mainScreen].bounds.size.height + GLOIndicatorArrowHeight];
     self.scrollView.delegate = self;
     self.scrollView.dataSource = self;
     [self.scrollView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     self.scrollView.parallaxHeader.stickyViewPosition = VGParallaxHeaderStickyViewPositionBottom;
-    [self.scrollView.parallaxHeader setStickyView:tabView withHeight:80];
+    [self.scrollView.parallaxHeader setStickyView:tabView withHeight:GLOTabbedPagerViewHeight];
     
     [self.view addSubview:_scrollView];
     [self.scrollView setContentSize:CGSizeMake(self.view.bounds.size.width, 3000)];
