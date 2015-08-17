@@ -22,10 +22,9 @@ static const CGFloat GLOTabbedPagerViewHeight = 80.0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    GLOParallaxTabView *tabView = [[GLOParallaxTabView alloc] init];
+    GLOParallaxTabView *tabView = [[GLOParallaxTabView alloc] initWithHeight:GLOTabbedPagerViewHeight];
     tabView.tabTitles = @[@"Friends (100)", @"Circles (2)", @"Settings"];
     tabView.tabColors = @[[UIColor lightGrayColor], [UIColor orangeColor], [UIColor purpleColor]];
-    tabView.backgroundColor = [UIColor purpleColor];
     tabView.delegate = self;
     [self.view addSubview:tabView];
     
@@ -57,6 +56,17 @@ static const CGFloat GLOTabbedPagerViewHeight = 80.0;
 
 - (void)tabView:(GLOParallaxTabView *)tabView didSelectTab:(UIButton *)button {
     NSLog(@"%@ selected",[button titleForState:UIControlStateNormal]);
+    NSLog(@"Offset: %f", self.scrollView.contentOffset.y);
+    
+    CGFloat offset = [UIScreen mainScreen].bounds.size.height/2;
+    
+    if (self.scrollView.contentOffset.y < offset) {
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            
+            [self.scrollView setContentOffset:CGPointMake(0, offset) animated:YES];
+        } completion:nil];
+    }
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

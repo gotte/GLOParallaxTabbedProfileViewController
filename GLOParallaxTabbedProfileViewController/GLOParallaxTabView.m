@@ -32,6 +32,14 @@
     return self;
 }
 
+- (instancetype)initWithHeight:(CGFloat)height {
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    screenBounds.size.height = height;
+    self = [super initWithFrame:screenBounds];
+    self.backgroundColor = [UIColor whiteColor];
+    return self;
+}
+
 #pragma mark - UI setup
 
 - (void)setTabColors:(NSArray *)tabColors {
@@ -70,7 +78,7 @@
                 vflString = [NSString stringWithFormat:@"%@[%@(==button0)]",vflString, currentButtonString];
             }
             
-            NSString *vflVerticalString = [NSString stringWithFormat:@"V:|[%@(>=50,<=80)]|",currentButtonString];
+            NSString *vflVerticalString = [NSString stringWithFormat:@"V:|[%@(>=1,<=%f)]|",currentButtonString, self.bounds.size.height];
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflVerticalString options:NSLayoutFormatAlignAllBottom metrics:nil views:@{currentButtonString:button}]];
             
             [viewsDict setObject:button forKey:currentButtonString];

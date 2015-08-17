@@ -22,7 +22,10 @@
 
 @property (nonatomic) NSArray *tabTitles;
 @property (nonatomic) NSArray *tabColors;
+@property (nonatomic) UIView *headerView;
 @property (nonatomic) id<GLOParallaxTabViewDelegate> delegate;
 @property (nonatomic) NSInteger selectedIndex;
 
+- (instancetype)initWithHeight:(CGFloat)height;
+    
 @end
