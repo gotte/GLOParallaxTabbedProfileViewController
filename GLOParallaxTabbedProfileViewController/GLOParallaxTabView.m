@@ -7,6 +7,7 @@
 //
 
 #import "GLOParallaxTabView.h"
+#import "GLOTabItemButton.h"
 
 @interface GLOParallaxTabView ()
 
@@ -27,6 +28,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
+    self.backgroundColor = [UIColor whiteColor];
     return self;
 }
 
@@ -38,7 +40,7 @@
     _tabButtons = [[NSMutableArray alloc] init];
     
     for (NSString *tabTitle in tabTitles) {
-        UIButton *currentButton = [self tabButtonWithTitle:tabTitle];
+        GLOTabItemButton *currentButton = [self tabButtonWithTitle:tabTitle];
         [self addSubview: currentButton];
         [self.tabButtons addObject: currentButton];
     }
@@ -64,9 +66,10 @@
     
 }
 
-- (UIButton *)tabButtonWithTitle:(NSString *)title {
-    UIButton *button = [[UIButton alloc] init];
+- (GLOTabItemButton *)tabButtonWithTitle:(NSString *)title {
+    GLOTabItemButton *button = [[GLOTabItemButton alloc] init];
     button.translatesAutoresizingMaskIntoConstraints = NO;
+    //button.backgroundColor = [UIColor clearColor];
     [button setTitle:title forState:UIControlStateNormal];
     [button addTarget:self action:@selector(tabButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     

@@ -17,6 +17,7 @@
 		42A16BFB1B7F80D70006A476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42A16BF91B7F80D70006A476 /* LaunchScreen.storyboard */; };
 		42A16C061B7F80D70006A476 /* GLOParallaxTabbedProfileViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A16C051B7F80D70006A476 /* GLOParallaxTabbedProfileViewControllerTests.m */; };
 		42A16C111B7F80D70006A476 /* GLOParallaxTabbedProfileViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A16C101B7F80D70006A476 /* GLOParallaxTabbedProfileViewControllerUITests.m */; };
+		42F8DDA51B820EAB00A8214B /* GLOTabItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F8DDA41B820EAB00A8214B /* GLOTabItemButton.m */; };
 		EA927485C5CF7D65306B569B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A86E6784106B3A5DD7168C6C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,8 @@
 		42A16C0C1B7F80D70006A476 /* GLOParallaxTabbedProfileViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GLOParallaxTabbedProfileViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A16C101B7F80D70006A476 /* GLOParallaxTabbedProfileViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLOParallaxTabbedProfileViewControllerUITests.m; sourceTree = "<group>"; };
 		42A16C121B7F80D70006A476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42F8DDA31B820EAB00A8214B /* GLOTabItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLOTabItemButton.h; sourceTree = "<group>"; };
+		42F8DDA41B820EAB00A8214B /* GLOTabItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLOTabItemButton.m; sourceTree = "<group>"; };
 		A694122707451CF05954E949 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		A86E6784106B3A5DD7168C6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADDC4D51BBBA58A0F8DFFC20 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				42997F021B7F826D000A0EFC /* GLOParallaxTabbedPager.m */,
 				42997F041B7F8602000A0EFC /* GLOParallaxTabView.h */,
 				42997F051B7F8602000A0EFC /* GLOParallaxTabView.m */,
+				42F8DDA31B820EAB00A8214B /* GLOTabItemButton.h */,
+				42F8DDA41B820EAB00A8214B /* GLOTabItemButton.m */,
 				42A16BF41B7F80D70006A476 /* Main.storyboard */,
 				42A16BF71B7F80D70006A476 /* Assets.xcassets */,
 				42A16BF91B7F80D70006A476 /* LaunchScreen.storyboard */,
@@ -341,6 +346,7 @@
 			files = (
 				42A16BF31B7F80D70006A476 /* GLOParallaxTabbedProfileViewController.m in Sources */,
 				42A16BF01B7F80D70006A476 /* AppDelegate.m in Sources */,
+				42F8DDA51B820EAB00A8214B /* GLOTabItemButton.m in Sources */,
 				42997F061B7F8602000A0EFC /* GLOParallaxTabView.m in Sources */,
 				42A16BED1B7F80D70006A476 /* main.m in Sources */,
 				42997F031B7F826D000A0EFC /* GLOParallaxTabbedPager.m in Sources */,
